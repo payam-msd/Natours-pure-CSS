@@ -1,0 +1,440 @@
+//What You can find here :
+//* Header
+//* Overlays
+//* Footer
+//* Navigation
+//* All Other CSS
+
+//TODOs Header
+//* Header properties in (Header)
+//! Header style part
+.header {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  position: relative;
+  height: 87vh;
+  background-size: cover;
+  background-image: linear-gradient(
+      to top,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero-small.jpg);
+
+  @include respond(tab-port) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
+    background-image: linear-gradient(
+        to top,
+        rgba($color-primary, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    height: 97vh;
+  }
+
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+
+  //! Logo Style part
+  &__logo-box {
+    position: absolute;
+    top: 5rem;
+    left: 4rem;
+    animation: dropdown 2s;
+  }
+  &__logo {
+    height: 4rem;
+  }
+}
+
+//? Contains section-features Properties
+.section-features {
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+  margin-top: -10rem;
+  padding: 20rem 0;
+  background-size: cover;
+  background-image: linear-gradient(
+      to top,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  transform: skewY(-7deg);
+  & > * {
+    transform: skewY(7deg);
+  }
+}
+
+//TODOs Overlays
+//? Contains Background-Color Gray All Over Pages
+.section-about {
+  background-color: $color-gray-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+  @include respond(tab-port) {
+    padding: 20rem 0;
+  }
+}
+.section-tours {
+  background-color: $color-gray-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -20vh;
+  @include respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
+}
+.section-stories {
+  position: relative;
+  padding: 15rem 0;
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+}
+//?  Section-Story Background video Props
+.bg-video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.16;
+  overflow: hidden;
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to bottom right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+}
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  box-shadow: 0 1.5rem 4rem $shadow-primary;
+  border-radius: 1.5rem;
+  @include respond(tab-land) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 65%,
+        transparent 65%
+      ),
+      url(../img/nat-10.jpg);
+  }
+  @include respond(tab-port) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 100%
+      ),
+      url(../img/nat-10.jpg);
+  }
+
+  &__form {
+    padding: 6rem;
+    width: 50%;
+    @include respond(tab-land) {
+      width: 65%;
+    }
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+}
+
+//TODOs Footer
+.footer {
+  background-color: $color-gray-3;
+  font-size: 1.4rem;
+  padding: 10rem 0;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+
+  @include respond(tab-port) {
+    padding: 8rem 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    @include respond(tab-port) {
+      margin-bottom: 6rem;
+    }
+  }
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+  &__nav {
+    @include respond(tab-port) {
+      text-align: center;
+      width: 100%;
+    }
+    border-top: 0.1rem solid $color-gray;
+    padding-top: 2rem;
+    display: inline-block;
+  }
+  &__list {
+    list-style: none;
+  }
+  &__item {
+    display: inline-block;
+  }
+  &__link {
+    &:link,
+    &:visited {
+      background-color: $color-gray-3;
+      color: $color-gray-light-1;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: 0 1rem 2rem $shadow-primary;
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+  &__copyright {
+    border-top: 0.1rem solid $color-gray;
+    padding-top: 2rem;
+    display: inline-block;
+    width: 80%;
+    float: right;
+    @include respond(tab-port) {
+      float: left;
+      width: 100%;
+    }
+  }
+}
+
+//TODOs Navigation
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+  &__button {
+    cursor: pointer;
+    position: fixed;
+    text-align: center;
+    border-radius: 50%;
+    top: 6rem;
+    right: 6rem;
+    height: 7rem;
+    width: 7rem;
+    background-color: $color-white;
+    z-index: 81;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.2);
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+  &__background {
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient($color-primary, $color-primary-dark);
+    z-index: 20;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+  }
+
+  &__nav {
+    height: 100vh;
+    width: 0%;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -125;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  &__item {
+    margin: 1rem;
+  }
+  &__link {
+    &:link,
+    &:visited {
+      @include respond(tab-port) {
+        font-size: 2.5rem;
+      }
+      @include respond(phone) {
+        font-size: 1.7rem;
+      }
+      //? Transition and padding wouldn't work if we dont add inline-block element
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      opacity: 1;
+      width: 100%;
+      visibility: visible;
+      background-image: linear-gradient(
+        120deg,
+        transparent,
+        0%,
+        transparent 50%,
+        //? Second bg currently stay beside(right-hand) the primary bg
+          $color-white 50%
+      );
+      //? background-size can contain : cover / contain / and percentages!!
+      background-size: 230%;
+      transition: all 0.5s;
+    }
+    &:hover,
+    &:active {
+      //? when hover, the second bg will replace to primary due to 100% of position
+      background-position: 100%;
+      color: $color-primary;
+      //?Backward animation for nav
+      transform: translateX(1rem);
+    }
+  }
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+    z-index: 25;
+    visibility: visible;
+  }
+
+  //!Icon Nav
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 0.2rem;
+      left: 0;
+      background-color: $color-gray-3;
+      display: inline-block;
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      transition: all 0.2s;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked + &__button &__icon::before {
+    //? Top:0; will set the lines to center
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    //? same thing happen here in above
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+//TODOs All Other CSS
+//? Cauterize The (Section-about & Section-tours) Heading-Text
+.u-center-text {
+  text-align: center;
+}
+//? Diff Margin-Bottoms
+.m-bottom-small {
+  margin-bottom: 2rem;
+}
+.m-bottom-medium {
+  @include respond(tab-port) {
+    margin-bottom: 3rem;
+  }
+  margin-bottom: 4rem;
+}
+.m-bottom-big {
+  @include respond(tab-port) {
+    margin-bottom: 4rem;
+  }
+  margin-bottom: 8rem;
+}
+.m-top-small {
+  margin-top: 4rem;
+}
+.m-top-medium {
+  margin-top: 6rem;
+}
+.m-top-big {
+  margin-top: 8rem;
+}
